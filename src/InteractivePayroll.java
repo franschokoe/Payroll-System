@@ -86,9 +86,16 @@ public class InteractivePayroll {
                                 "Employee Hours",
                                 JOptionPane.QUESTION_MESSAGE
                         ));
+
                     }
                     catch(NullPointerException e){
                         //catch for hours
+                        JOptionPane.showMessageDialog(
+                                null,
+                                "INvalid Error enter something",
+                                "Hourly Errors",
+                                JOptionPane.ERROR
+                        );
                     }
                 }
             }
