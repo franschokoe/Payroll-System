@@ -12,18 +12,21 @@ public class InteractivePayroll {
                 JOptionPane.QUESTION_MESSAGE
         );
 
-        int employeeId = Integer.parseInt(JOptionPane.showInputDialog(
+        String employeeId = JOptionPane.showInputDialog(
                 null,
                 "Enter your id",
                 "Employeee Id",
                 JOptionPane.QUESTION_MESSAGE
-        ));
+                //if statement to control the digits entered
+        );
 
-        boolean paymentType = JOptionPane.showConfirmDialog(
+        int paymentType = JOptionPane.showConfirmDialog(
                 null,
-                "Type of payment (Hourly or Salary)",
+                "Is your payment salary?",
                 "Payment Type",
-                JOptionPane.QUESTION_MESSAGE
+                JOptionPane.YES_NO_OPTION
+                //if yes the we continue to salary calculation
+                //with no we contnue to hourly calculation
         );
         //for scanner
         String employeeNameScanner = scanner.nextLine();
