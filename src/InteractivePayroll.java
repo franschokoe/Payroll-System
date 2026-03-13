@@ -29,7 +29,7 @@ public class InteractivePayroll {
                 //with no we contnue to hourly calculation
         );
         //for scanner
-        String employeeNameScanner = scanner.nextLine();
+//        String employeeNameScanner = scanner.nextLine();
 
         //runnign with while
         boolean active = true;
@@ -37,20 +37,64 @@ public class InteractivePayroll {
             try{
                 if (paymentType == JOptionPane.YES_OPTION){
                     //user enter their salary here
-                    double employeeSalary = Double.parseDouble(JOptionPane.showInputDialog(
-                            null,
-                            "Enter Your annual salary:",
-                            "Employee Salary",
-                            JOptionPane.QUESTION_MESSAGE
+                    try{
+                        double employeeSalary = Double.parseDouble(JOptionPane.showInputDialog(
+                                null,
+                                "Enter Your annual salary:",
+                                "Employee Salary",
+                                JOptionPane.QUESTION_MESSAGE
 
-                    ));
-                    //calculating monthly bi-weekly , weekly salary
-                    double userMonthlySalary =
-                    //input scanner for double
-                    double userSalary = scanner.nextDouble();
+                        ));
+                        //input scanner for double
+//                        double userSalary = scanner.nextDouble();
+
+                        //calculating monthly bi-weekly , weekly salary
+                        double userMonthlySalary = (employeeSalary/12); //output this
+                        double userBieeklySalary = (userMonthlySalary / 31)* 14;
+                        double userweeklySalary  = (userMonthlySalary/31)*7;
+
+
+
+
+
+                    }catch (NumberFormatException e){
+                        //null for not number input
+                        JOptionPane.showMessageDialog(
+                                null ,
+                                "Invalid annual salary number only",
+                                "Error ",
+                                JOptionPane.ERROR
+                        );
+                        break;
+                    }catch (NullPointerException e){
+                        //error for null input
+                        JOptionPane.showMessageDialog(
+                                null,
+                                "Please enter some value",
+                                "Error",
+                                JOptionPane.ERROR
+                        );
+                        break;
+                    }
+
+                } else if (paymentType == JOptionPane.NO_OPTION) {
+                    // hourly employee
+                    try{
+                        double employeeWorkHour = Double.parseDouble(JOptionPane.showInputDialog(
+                                null,
+                                "Enter your woking hours",
+                                "Employee Hours",
+                                JOptionPane.QUESTION_MESSAGE
+                        ));
+                    }
+                    catch(NullPointerException e){
+                        //catch for hours
+                    }
                 }
-            }catch (NumberFormatException e){
+            }
+            catch (NumberFormatException e){
                 System.out.print("Error in first try" + e);
+                break;
             }
         }
     }
