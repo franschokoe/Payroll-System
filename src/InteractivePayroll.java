@@ -9,13 +9,24 @@ public class InteractivePayroll {
                 null,
                 "Enter your name",
                 "Employee Name",
-                JOptionPane.INFORMATION_MESSAGE
+                JOptionPane.QUESTION_MESSAGE
         );
+
+        int employeeId = Integer.parseInt(JOptionPane.showInputDialog(
+                null,
+                "Enter your id",
+                "Employeee Id",
+                JOptionPane.QUESTION_MESSAGE
+        ));
+
+        boolean paymentType = JOptionPane.showConfirmDialog(
+                null,
+                "Type of payment (Hourly or Salary)",
+                "Payment Type",
+                JOptionPane.QUESTION_MESSAGE
+        );
+        //for scanner
         String employeeNameScanner = scanner.nextLine();
-
-        int employeeId;
-        boolean paymentType;
-
 
     }
 }
