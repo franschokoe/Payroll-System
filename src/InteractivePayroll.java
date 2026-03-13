@@ -35,7 +35,20 @@ public class InteractivePayroll {
         boolean active = true;
         while(active){
             try{
+                if (paymentType == JOptionPane.YES_OPTION){
+                    //user enter their salary here
+                    double employeeSalary = Double.parseDouble(JOptionPane.showInputDialog(
+                            null,
+                            "Enter Your annual salary:",
+                            "Employee Salary",
+                            JOptionPane.QUESTION_MESSAGE
 
+                    ));
+                    //calculating monthly bi-weekly , weekly salary
+                    double userMonthlySalary =
+                    //input scanner for double
+                    double userSalary = scanner.nextDouble();
+                }
             }catch (NumberFormatException e){
                 System.out.print("Error in first try" + e);
             }
