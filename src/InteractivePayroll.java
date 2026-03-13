@@ -22,7 +22,7 @@ public class InteractivePayroll {
 
         int paymentType = JOptionPane.showConfirmDialog(
                 null,
-                "Is your payment salary?",
+                "Is your payment in a form of a salary?",
                 "Payment Type",
                 JOptionPane.YES_NO_OPTION
                 //if yes the we continue to salary calculation
@@ -31,5 +31,14 @@ public class InteractivePayroll {
         //for scanner
         String employeeNameScanner = scanner.nextLine();
 
+        //runnign with while
+        boolean active = true;
+        while(active){
+            try{
+
+            }catch (NumberFormatException e){
+                System.out.print("Error in first try" + e);
+            }
+        }
     }
 }
