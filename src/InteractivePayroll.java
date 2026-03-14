@@ -46,16 +46,12 @@ public class InteractivePayroll {
 
                         ));
                         //input scanner for double
-//                        double userSalary = scanner.nextDouble();
+                        //double userSalary = scanner.nextDouble();
 
                         //calculating monthly bi-weekly , weekly salary
                         double userMonthlySalary = (employeeSalary/12); //output this
                         double userBieeklySalary = (userMonthlySalary / 31)* 14;
                         double userweeklySalary  = (userMonthlySalary/31)*7;
-
-
-
-
 
                     }catch (NumberFormatException e){
                         //null for not number input
@@ -78,7 +74,7 @@ public class InteractivePayroll {
                     }
 
                 } else if (paymentType == JOptionPane.NO_OPTION) {
-                    // hourly employee
+                    // hourly employee sections
                     try{
                         double employeeWorkHour = Double.parseDouble(JOptionPane.showInputDialog(
                                 null,
@@ -96,7 +92,15 @@ public class InteractivePayroll {
                         final int normalHours = 40;
                         if(employeeWorkHour == normalHours){
                             //normal hours = 40
-                            double employeeWage = employeeWorkHour * employeeHourRate ;
+                            double employeeWage = employeeWorkHour * employeeHourRate ; //output this
+
+                        }
+                        else if (employeeWorkHour > normalHours){
+                            double extraTimeRate = 1.5;
+                            //finding the difference
+                            double extraHours = employeeWorkHour - normalHours;
+                            //final etra hours amount
+                            double extraHoursWage = extraHours * extraTimeRate; //output this
                         }
                     }
                     catch(NullPointerException e){
