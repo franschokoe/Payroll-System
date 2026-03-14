@@ -113,6 +113,10 @@ public class InteractivePayroll {
                         );
                     }
                 }
+                //results section in a formated way
+                String summaryResults = String.format(
+                        ""
+                );
             }
             catch (NumberFormatException e){
                 System.out.print("Error in first try" + e);
