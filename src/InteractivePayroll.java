@@ -35,11 +35,11 @@ public class InteractivePayroll {
         boolean active = true;
         while(active){
             try {
-                double userMonthlySalary = 0;
-                double userBiweeklySalary = 0;
-                double userweeklySalary = 0;
-                double employeeWage = 0;
-                double totalHoursWage = 0;
+                double userMonthlySalary = 0.00;
+                double userBiweeklySalary = 0.00;
+                double userweeklySalary = 0.00;
+                double employeeWage = 0.00;
+                double totalHoursWage = 0.00;
                 if (paymentType == JOptionPane.YES_OPTION) {
                     //user enter their salary here
                     try {
