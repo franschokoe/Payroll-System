@@ -95,7 +95,7 @@ public class InteractivePayroll {
                         ));
                         // checking the number of hours to detect the extra hours
                         final int normalHours = 40;
-                        if (employeeWorkHour == normalHours) {
+                        if (employeeWorkHour == normalHours | employeeHourRate > normalHours) {
                             //normal hours = 40
                             employeeWage = employeeWorkHour * employeeHourRate;
 
@@ -107,7 +107,16 @@ public class InteractivePayroll {
                             double extraHoursWage = extraHours * extraTimeRate; //output this
                             //total extra time earned
                             totalHoursWage = extraHoursWage * employeeHourRate;
-                        } else {
+                        }
+                        else if(employeeWorkHour <normalHours){
+                            JOptionPane.showMessageDialog(
+                                    null,
+                                    "No hours less than 40 hours\ntry again",
+                                    "Hourly Error",
+                                    JOptionPane.ERROR_MESSAGE
+                            );
+                        }
+                        else {
                             JOptionPane.showMessageDialog(
                                     null,
                                     "Error orcured start",
@@ -128,15 +137,16 @@ public class InteractivePayroll {
                 }
                 //results section in a formated way
                 String summaryResults = String.format(
-                        "Full Names: %s\n" +
-                                "Employee ID: %s\n\n" +
-                                "Monthly Salary:R %.2f\n" +
-                                "Bi-Weekly Salary:R %.2f\n" +
-                                "Week Salary:R %.2f\n\n" +
-                                "-------------------------------" +
+                                "Full Names: %s\n " +
+                                "Employee ID: %s\n " +
+                                        "SALARY EMPLOYEE\n\n" +
+                                "Monthly Salary:R %.2f\n " +
+                                "Bi-Weekly Salary:R %.2f\n " +
+                                "Week Salary:R %.2f\n\n " +
+                                "-------------------------------\n\n" +
                                 "HOURLY EMPLOYEE\n\n" +
-                                "Weekly amount(normal hours):R %.2f\n" +
-                                "Overtime amount:R %.2f",
+                                "Weekly amount(normal hours):R %.2f\n " +
+                                "Overtime amount:R %.2f ",
                         employeeName,
                         employeeId,
                         userMonthlySalary,
@@ -148,11 +158,12 @@ public class InteractivePayroll {
 
                 JOptionPane.showMessageDialog(
                         null,
-                        " " + summaryResults,
+                        "" + summaryResults,
                         "Sumary Results",
                         JOptionPane.INFORMATION_MESSAGE
 
                 );
+                break;
             }
             catch (NumberFormatException e){
                 System.out.print("Error in first try" + e);
