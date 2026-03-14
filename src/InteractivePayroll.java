@@ -95,7 +95,7 @@ public class InteractivePayroll {
                         ));
                         // checking the number of hours to detect the extra hours
                         final int normalHours = 40;
-                        if (employeeWorkHour == normalHours | employeeHourRate > normalHours) {
+                        if (employeeWorkHour == normalHours | employeeWorkHour > normalHours) {
                             //normal hours = 40
                             employeeWage = employeeWorkHour * employeeHourRate;
 
@@ -138,8 +138,9 @@ public class InteractivePayroll {
                 //results section in a formated way
                 String summaryResults = String.format(
                                 "Full Names: %s\n " +
-                                "Employee ID: %s\n " +
-                                        "SALARY EMPLOYEE\n\n" +
+                                "Employee ID: %s\n\n " +
+                                "----------------------------\n\n" +
+                                "SALARY EMPLOYEE\n\n" +
                                 "Monthly Salary:R %.2f\n " +
                                 "Bi-Weekly Salary:R %.2f\n " +
                                 "Week Salary:R %.2f\n\n " +
