@@ -7,7 +7,7 @@ public class InteractivePayroll {
         Scanner scanner = new Scanner(System.in);
         String employeeName = JOptionPane.showInputDialog(
                 null,
-                "Enter your name",
+                "Enter your full names",
                 "Employee Name",
                 JOptionPane.QUESTION_MESSAGE
         );
@@ -34,10 +34,13 @@ public class InteractivePayroll {
         //runnign with while
         boolean active = true;
         while(active){
-            try{
-                if (paymentType == JOptionPane.YES_OPTION){
+            try {
+                double userMonthlySalary = 0;
+                double userBiweeklySalary = 0;
+                double userweeklySalary = 0;
+                if (paymentType == JOptionPane.YES_OPTION) {
                     //user enter their salary here
-                    try{
+                    try {
                         double employeeSalary = Double.parseDouble(JOptionPane.showInputDialog(
                                 null,
                                 "Enter Your annual salary:",
@@ -49,20 +52,20 @@ public class InteractivePayroll {
                         //double userSalary = scanner.nextDouble();
 
                         //calculating monthly bi-weekly , weekly salary
-                        double userMonthlySalary = (employeeSalary/12); //output this
-                        double userBieeklySalary = (userMonthlySalary / 31)* 14;
-                        double userweeklySalary  = (userMonthlySalary/31)*7;
+                        userMonthlySalary = (employeeSalary / 12);
+                        userBiweeklySalary = (userMonthlySalary / 31) * 14;
+                        userweeklySalary = (userMonthlySalary / 31) * 7;
 
-                    }catch (NumberFormatException e){
+                    } catch (NumberFormatException e) {
                         //null for not number input
                         JOptionPane.showMessageDialog(
-                                null ,
+                                null,
                                 "Invalid annual salary number only",
                                 "Error ",
                                 JOptionPane.ERROR
                         );
                         break;
-                    }catch (NullPointerException e){
+                    } catch (NullPointerException e) {
                         //error for null input
                         JOptionPane.showMessageDialog(
                                 null,
@@ -75,7 +78,7 @@ public class InteractivePayroll {
 
                 } else if (paymentType == JOptionPane.NO_OPTION) {
                     // hourly employee sections
-                    try{
+                    try {
                         double employeeWorkHour = Double.parseDouble(JOptionPane.showInputDialog(
                                 null,
                                 "Enter your woking hours",
@@ -90,20 +93,28 @@ public class InteractivePayroll {
                         ));
                         // checking the number of hours to detect the extra hours
                         final int normalHours = 40;
-                        if(employeeWorkHour == normalHours){
+                        if (employeeWorkHour == normalHours) {
                             //normal hours = 40
-                            double employeeWage = employeeWorkHour * employeeHourRate ; //output this
+                            double employeeWage = employeeWorkHour * employeeHourRate; //output this
 
-                        }
-                        else if (employeeWorkHour > normalHours){
+                        } else if (employeeWorkHour > normalHours) {
                             double extraTimeRate = 1.5;
                             //finding the difference
                             double extraHours = employeeWorkHour - normalHours;
                             //final etra hours amount
                             double extraHoursWage = extraHours * extraTimeRate; //output this
+                            //total extra time earned
+                            double totalHoursWage = extraHoursWage * employeeHourRate;//output
+                        } else {
+                            JOptionPane.showMessageDialog(
+                                    null,
+                                    "Error orcured start",
+                                    "Error",
+                                    JOptionPane.ERROR_MESSAGE
+                            );
+                            break;
                         }
-                    }
-                    catch(NullPointerException e){
+                    } catch (NullPointerException e) {
                         //catch for hours
                         JOptionPane.showMessageDialog(
                                 null,
@@ -115,8 +126,22 @@ public class InteractivePayroll {
                 }
                 //results section in a formated way
                 String summaryResults = String.format(
-                        ""
-                );
+                        "Full Names: %s\n" +
+                                "Employee ID: %s\n\n" +
+                                "Monthly Salary:R %.2f\n" +
+                                "Bi-Weekly Salary:R %.2f\n" +
+                                "Week Salary:R %.2f\n\n" +
+                                "HOURLY EMPLOYEE\n\n" +
+                                "Weekly amount(normal hours):R %.2f\n" +
+                                "Overtime amount:R %.2f",
+                        employeeName,
+                        employeeId,
+                        userMonthlySalary,
+                        userBiweeklySalary,
+                        userweeklySalary,
+
+
+                        );
             }
             catch (NumberFormatException e){
                 System.out.print("Error in first try" + e);
