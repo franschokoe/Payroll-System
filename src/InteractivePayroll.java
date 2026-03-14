@@ -145,6 +145,14 @@ public class InteractivePayroll {
                         employeeWage,
                         totalHoursWage
                 );
+
+                JOptionPane.showMessageDialog(
+                        null,
+                        " " + summaryResults,
+                        "Sumary Results",
+                        JOptionPane.INFORMATION_MESSAGE
+
+                );
             }
             catch (NumberFormatException e){
                 System.out.print("Error in first try" + e);
