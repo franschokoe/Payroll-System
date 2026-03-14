@@ -86,7 +86,18 @@ public class InteractivePayroll {
                                 "Employee Hours",
                                 JOptionPane.QUESTION_MESSAGE
                         ));
-
+                        double employeeHourRate = Double.parseDouble(JOptionPane.showInputDialog(
+                                null,
+                                "Enter your hourly rate",
+                                "Employee Hours",
+                                JOptionPane.QUESTION_MESSAGE
+                        ));
+                        // checking the number of hours to detect the extra hours
+                        final int normalHours = 40;
+                        if(employeeWorkHour == normalHours){
+                            //normal hours = 40
+                            double employeeWage = employeeWorkHour * employeeHourRate ;
+                        }
                     }
                     catch(NullPointerException e){
                         //catch for hours
