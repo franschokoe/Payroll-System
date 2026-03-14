@@ -38,6 +38,8 @@ public class InteractivePayroll {
                 double userMonthlySalary = 0;
                 double userBiweeklySalary = 0;
                 double userweeklySalary = 0;
+                double employeeWage = 0;
+                double totalHoursWage = 0;
                 if (paymentType == JOptionPane.YES_OPTION) {
                     //user enter their salary here
                     try {
@@ -95,7 +97,7 @@ public class InteractivePayroll {
                         final int normalHours = 40;
                         if (employeeWorkHour == normalHours) {
                             //normal hours = 40
-                            double employeeWage = employeeWorkHour * employeeHourRate; //output this
+                            employeeWage = employeeWorkHour * employeeHourRate;
 
                         } else if (employeeWorkHour > normalHours) {
                             double extraTimeRate = 1.5;
@@ -104,7 +106,7 @@ public class InteractivePayroll {
                             //final etra hours amount
                             double extraHoursWage = extraHours * extraTimeRate; //output this
                             //total extra time earned
-                            double totalHoursWage = extraHoursWage * employeeHourRate;//output
+                            totalHoursWage = extraHoursWage * employeeHourRate;
                         } else {
                             JOptionPane.showMessageDialog(
                                     null,
@@ -131,6 +133,7 @@ public class InteractivePayroll {
                                 "Monthly Salary:R %.2f\n" +
                                 "Bi-Weekly Salary:R %.2f\n" +
                                 "Week Salary:R %.2f\n\n" +
+                                "-------------------------------" +
                                 "HOURLY EMPLOYEE\n\n" +
                                 "Weekly amount(normal hours):R %.2f\n" +
                                 "Overtime amount:R %.2f",
@@ -139,9 +142,9 @@ public class InteractivePayroll {
                         userMonthlySalary,
                         userBiweeklySalary,
                         userweeklySalary,
-
-
-                        );
+                        employeeWage,
+                        totalHoursWage
+                );
             }
             catch (NumberFormatException e){
                 System.out.print("Error in first try" + e);
