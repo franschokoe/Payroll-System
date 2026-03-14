@@ -4,36 +4,61 @@ import java.util.Scanner;
 public class InteractivePayroll {
     public static void main(String [] args){
         //Initialize vairables
-        Scanner scanner = new Scanner(System.in);
-        String employeeName = JOptionPane.showInputDialog(
-                null,
-                "Enter your full names",
-                "Employee Name",
-                JOptionPane.QUESTION_MESSAGE
-        );
-
-        String employeeId = JOptionPane.showInputDialog(
-                null,
-                "Enter your id",
-                "Employeee Id",
-                JOptionPane.QUESTION_MESSAGE
-                //if statement to control the digits entered
-        );
-
-        int paymentType = JOptionPane.showConfirmDialog(
-                null,
-                "Is your payment in a form of a salary?",
-                "Payment Type",
-                JOptionPane.YES_NO_OPTION
-                //if yes the we continue to salary calculation
-                //with no we contnue to hourly calculation
-        );
+//        Scanner scanner = new Scanner(System.in);
+//        String employeeName = JOptionPane.showInputDialog(
+//                null,
+//                "Enter your full names",
+//                "Employee Name",
+//                JOptionPane.QUESTION_MESSAGE
+//        );
+//
+//        String employeeId = JOptionPane.showInputDialog(
+//                null,
+//                "Enter your id",
+//                "Employeee Id",
+//                JOptionPane.QUESTION_MESSAGE
+//                //if statement to control the digits entered
+//        );
+//
+//        int paymentType = JOptionPane.showConfirmDialog(
+//                null,
+//                "Is your payment in a form of a salary?",
+//                "Payment Type",
+//                JOptionPane.YES_NO_OPTION
+//                //if yes the we continue to salary calculation
+//                //with no we contnue to hourly calculation
+//        );
         //for scanner
 //        String employeeNameScanner = scanner.nextLine();
 
         //runnign with while
         boolean active = true;
         while(active){
+            //Initialize vairables
+            Scanner scanner = new Scanner(System.in);
+            String employeeName = JOptionPane.showInputDialog(
+                    null,
+                    "Enter your full names",
+                    "Employee Name",
+                    JOptionPane.QUESTION_MESSAGE
+            );
+
+            String employeeId = JOptionPane.showInputDialog(
+                    null,
+                    "Enter your id",
+                    "Employeee Id",
+                    JOptionPane.QUESTION_MESSAGE
+                    //if statement to control the digits entered
+            );
+
+            int paymentType = JOptionPane.showConfirmDialog(
+                    null,
+                    "Is your payment in a form of a salary?",
+                    "Payment Type",
+                    JOptionPane.YES_NO_OPTION
+                    //if yes the we continue to salary calculation
+                    //with no we contnue to hourly calculation
+            );
             try {
                 double userMonthlySalary = 0.00;
                 double userBiweeklySalary = 0.00;
@@ -95,7 +120,7 @@ public class InteractivePayroll {
                         ));
                         // checking the number of hours to detect the extra hours
                         final int normalHours = 40;
-                        if (employeeWorkHour == normalHours | employeeWorkHour > normalHours) {
+                        if (employeeWorkHour == normalHours) {
                             //normal hours = 40
                             employeeWage = employeeWorkHour * employeeHourRate;
 
@@ -107,6 +132,7 @@ public class InteractivePayroll {
                             double extraHoursWage = extraHours * extraTimeRate; //output this
                             //total extra time earned
                             totalHoursWage = extraHoursWage * employeeHourRate;
+                            employeeWage = employeeWorkHour * employeeHourRate; // for the output
                         }
                         else if(employeeWorkHour <normalHours){
                             JOptionPane.showMessageDialog(
@@ -164,11 +190,25 @@ public class InteractivePayroll {
                         JOptionPane.INFORMATION_MESSAGE
 
                 );
-                break;
+
             }
             catch (NumberFormatException e){
                 System.out.print("Error in first try" + e);
                 break;
+            }
+            finally {
+                //repetetive
+                int Decision = JOptionPane.showConfirmDialog(
+                        null ,
+                        "Do you want to continue ?",
+                        "Ending",
+                        JOptionPane.YES_NO_OPTION
+                );
+                if (Decision==JOptionPane.NO_OPTION){
+                    break;
+                } else if (Decision == JOptionPane.YES_OPTION) {
+                    continue;
+                }
             }
         }
     }
