@@ -35,9 +35,9 @@ public class InteractivePayroll {
         Scanner scanner = new Scanner(System.in);
         int userDecision = JOptionPane.showConfirmDialog(
                 null,
-                "Select Input Method:\nYes = GUI\nNo = Console",
+                "Select Input Method:\n\nYes = GUI\nNo = Console",
                 "Payroll",
-                JOptionPane.YES_NO_OPTION
+                JOptionPane.YES_NO_CANCEL_OPTION
         );
         //Program surface
         //GUI
@@ -230,7 +230,29 @@ public class InteractivePayroll {
             System.out.print("Enter your ID: ");
             String Id = scanner.nextLine();
             System.out.print("Do you earn in Salary or hours:(Y=Salary | N=Hourly): ");
-            String pamentmethods = scanner.nextLine();
+            String paymentmethods = scanner.nextLine().toLowerCase();
+
+            if(paymentmethods.equals("y") || paymentmethods.equals("salary")){
+                //yes input
+            }
+            else if(paymentmethods.equals("n")|| paymentmethods.equals("hourly")){
+                //no input
+            }
+            else{
+
+            }
+
+
+
+        }
+        //termination
+        else{
+            JOptionPane.showMessageDialog(
+                    null,
+                    "Thanks for Using our payroll",
+                    "Closing",
+                    JOptionPane.INFORMATION_MESSAGE
+            );
         }
 
     }
