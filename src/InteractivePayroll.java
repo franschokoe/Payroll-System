@@ -60,9 +60,11 @@ public class InteractivePayroll {
                     //with no we contnue to hourly calculation
             );
             //console input
+            System.out.print("Enter your full name: ");
             String name = scanner.nextLine();
+            System.out.print("Enter your ID: ");
             String Id = scanner.nextLine();
-            System.out.print("Do you earn in Salary or hours:(Y=Salary | N=Hourly)");
+            System.out.print("Do you earn in Salary or hours:(Y=Salary | N=Hourly): ");
             String pamentmethods = scanner.nextLine();
             try {
                 double userMonthlySalary = 0.00;
