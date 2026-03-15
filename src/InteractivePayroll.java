@@ -285,7 +285,7 @@ public class InteractivePayroll {
                     try{
                         System.out.print("Enter your working hours: ");
                         double workingHours = scanner.nextDouble();
-                        System.out.print("Enter yoir hourly rate: ");
+                        System.out.print("Enter your hourly rate: ");
                         double hourlyRate = scanner.nextDouble();
 
                         if(workingHours == normalHours){
@@ -320,16 +320,16 @@ public class InteractivePayroll {
                 }
 
                 String results = String.format(
-                        "Full Names: %s\n " +
-                        "Employee ID: %s\n\n " +
+                        "Full Names: %s\n" +
+                        "Employee ID: %s\n\n" +
                         "----------------------------\n\n" +
                         "SALARY EMPLOYEE\n\n" +
-                        "Monthly Salary:R %.2f\n " +
-                        "Bi-Weekly Salary:R %.2f\n " +
-                        "Week Salary:R %.2f\n\n " +
+                        "Monthly Salary:R %.2f\n" +
+                        "Bi-Weekly Salary:R %.2f\n" +
+                        "Week Salary:R %.2f\n\n" +
                         "-------------------------------\n\n" +
                         "HOURLY EMPLOYEE\n\n" +
-                        "Weekly amount(normal hours):R %.2f\n " +
+                        "Weekly amount(normal hours):R %.2f\n" +
                         "Overtime amount:R %.2f ",
                         name,
                         Id,
