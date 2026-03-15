@@ -39,10 +39,11 @@ public class InteractivePayroll {
                 "Payroll",
                 JOptionPane.YES_NO_CANCEL_OPTION
         );
+        boolean active = true;
         //Program surface
         //GUI
         if (userDecision==JOptionPane.YES_OPTION){
-            boolean active = true;
+
             while(active){
                 //Initialize vairables
 
@@ -216,6 +217,12 @@ public class InteractivePayroll {
                             JOptionPane.YES_NO_OPTION
                     );
                     if (Decision==JOptionPane.NO_OPTION){
+                        JOptionPane.showMessageDialog(
+                                null,
+                                "Thanks for using the Payrolls\n\nBye.",
+                                "Thanks",
+                                JOptionPane.INFORMATION_MESSAGE
+                        );
                         break;
                     } else if (Decision == JOptionPane.YES_OPTION) {
                         continue;
@@ -225,22 +232,36 @@ public class InteractivePayroll {
         }
         //Console input
         else if(userDecision==JOptionPane.NO_OPTION){
-            System.out.print("Enter your full name: ");
-            String name = scanner.nextLine();
-            System.out.print("Enter your ID: ");
-            String Id = scanner.nextLine();
-            System.out.print("Do you earn in Salary or hours:(Y=Salary | N=Hourly): ");
-            String paymentmethods = scanner.nextLine().toLowerCase();
 
-            if(paymentmethods.equals("y") || paymentmethods.equals("salary")){
-                //yes input
-            }
-            else if(paymentmethods.equals("n")|| paymentmethods.equals("hourly")){
-                //no input
-            }
-            else{
+            while(active){
 
+
+                System.out.print("Enter your full name: ");
+                String name = scanner.nextLine();
+                System.out.print("Enter your ID: ");
+                String Id = scanner.nextLine();
+                System.out.print("Do you earn in Salary or hours:(Y=Salary | N=Hourly): ");
+                String paymentmethods = scanner.nextLine().toLowerCase();
+
+                //declaring the variables
+                double userMonthlySalary = 0.00;
+                double userBiweeklySalary = 0.00;
+                double userweeklySalary = 0.00;
+                double employeeWage = 0.00;
+                double totalHoursWage = 0.00;
+
+
+                if(paymentmethods.equals("y") || paymentmethods.equals("salary")){
+                    //yes input
+                }
+                else if(paymentmethods.equals("n")|| paymentmethods.equals("hourly")){
+                    //no input
+                }
+                else{
+
+                }
             }
+
 
 
 
