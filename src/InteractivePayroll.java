@@ -125,6 +125,7 @@ public class InteractivePayroll {
 
                     } else if (paymentType == JOptionPane.NO_OPTION) {
                         // hourly employee sections
+                        final int normalHours = 40;
                         try {
                             double employeeWorkHour = Double.parseDouble(JOptionPane.showInputDialog(
                                     null,
@@ -139,7 +140,7 @@ public class InteractivePayroll {
                                     JOptionPane.QUESTION_MESSAGE
                             ));
                             // checking the number of hours to detect the extra hours
-                            final int normalHours = 40;
+
                             if (employeeWorkHour == normalHours) {
                                 //normal hours = 40
                                 employeeWage = employeeWorkHour * employeeHourRate;
@@ -261,6 +262,9 @@ public class InteractivePayroll {
                         userMonthlySalary = (consoleAnnualSalary / 12);
                         userBiweeklySalary = (userMonthlySalary / 31) * 14;
                         userweeklySalary = (userMonthlySalary / 31) * 7;
+
+                        //testing output
+                        System.out.print(userweeklySalary);
                     }
                     catch(NumberFormatException e){
                         System.out.print("Invalid input, please only numbers");
@@ -268,14 +272,44 @@ public class InteractivePayroll {
                     }
                     catch (NullPointerException e){
                         System.out.print("Enter something no empty input");
+                        break;
                     }
                     finally {
                         System.out.print("Thanks for using our Payroll");
+                        break;
                     }
                 }
                 else if(paymentmethods.equals("n")|| paymentmethods.equals("hourly")){
                     //no input for hourly
-                    System.out.print("Enter your annual s: ");
+                    final int normalHours = 40;
+                    try{
+                        System.out.print("Enter your working hours: ");
+                        double workingHours = scanner.nextDouble();
+                        System.out.print("Enter yoir hourly rate: ");
+                        double hourlyRate = scanner.nextDouble();
+
+                        if(workingHours == normalHours){
+
+                            employeeWage = workingHours * hourlyRate;
+                        }
+                        else if( workingHours > normalHours){
+                            double extraTimeRate = 1.5;
+
+                            double workingExtraHours = workingHours - normalHours;
+
+                            double workingHourFinal = workingExtraHours * extraTimeRate; //output
+
+                            totalHoursWage = workingHourFinal * hourlyRate;
+
+                            employeeWage = workingHours * hourlyRate;
+                        } else if (workingHours<normalHours) {
+                            System.out.print("No hours less than 40 hours try again");
+                        }
+                    }
+                    catch (NullPointerException e){
+                        System.out.print("Empty input not allowed");
+                    }
+
                     System.out.print("Enter your annual salary: ");
                 }
                 else{
