@@ -39,8 +39,16 @@ public class InteractivePayroll {
                 "Payroll",
                 JOptionPane.YES_NO_CANCEL_OPTION
         );
+        //declaring the calculation variables
+        double userMonthlySalary = 0.00;
+        double userBiweeklySalary = 0.00;
+        double userweeklySalary = 0.00;
+        double employeeWage = 0.00;
+        double totalHoursWage = 0.00;
+
         boolean active = true;
         //Program surface
+
         //GUI
         if (userDecision==JOptionPane.YES_OPTION){
 
@@ -72,11 +80,11 @@ public class InteractivePayroll {
                 );
 
                 try {
-                    double userMonthlySalary = 0.00;
-                    double userBiweeklySalary = 0.00;
-                    double userweeklySalary = 0.00;
-                    double employeeWage = 0.00;
-                    double totalHoursWage = 0.00;
+//                    double userMonthlySalary = 0.00;
+//                    double userBiweeklySalary = 0.00;
+//                    double userweeklySalary = 0.00;
+//                    double employeeWage = 0.00;
+//                    double totalHoursWage = 0.00;
                     if (paymentType == JOptionPane.YES_OPTION) {
                         //user enter their salary here
                         try {
@@ -243,19 +251,32 @@ public class InteractivePayroll {
                 System.out.print("Do you earn in Salary or hours:(Y=Salary | N=Hourly): ");
                 String paymentmethods = scanner.nextLine().toLowerCase();
 
-                //declaring the variables
-                double userMonthlySalary = 0.00;
-                double userBiweeklySalary = 0.00;
-                double userweeklySalary = 0.00;
-                double employeeWage = 0.00;
-                double totalHoursWage = 0.00;
-
 
                 if(paymentmethods.equals("y") || paymentmethods.equals("salary")){
-                    //yes input
+                    //yes input for salary
+                    try{
+                        System.out.print("Enter your annual salary: ");
+                        double consoleAnnualSalary = scanner.nextDouble(); //output this
+
+                        userMonthlySalary = (consoleAnnualSalary / 12);
+                        userBiweeklySalary = (userMonthlySalary / 31) * 14;
+                        userweeklySalary = (userMonthlySalary / 31) * 7;
+                    }
+                    catch(NumberFormatException e){
+                        System.out.print("Invalid input, please only numbers");
+                        active = false;
+                    }
+                    catch (NullPointerException e){
+                        System.out.print("Enter something no empty input");
+                    }
+                    finally {
+                        System.out.print("Thanks for using our Payroll");
+                    }
                 }
                 else if(paymentmethods.equals("n")|| paymentmethods.equals("hourly")){
-                    //no input
+                    //no input for hourly
+                    System.out.print("Enter your annual s: ");
+                    System.out.print("Enter your annual salary: ");
                 }
                 else{
 
