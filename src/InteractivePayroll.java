@@ -35,10 +35,12 @@ public class InteractivePayroll {
         Scanner scanner = new Scanner(System.in);
         int userDecision = JOptionPane.showConfirmDialog(
                 null,
-                "Select Input Method:\nYes.Console. No.GUI.",
+                "Select Input Method:\nYes = GUI\nNo = Console",
                 "Payroll",
                 JOptionPane.YES_NO_OPTION
         );
+        //Program surface
+        //GUI
         if (userDecision==JOptionPane.YES_OPTION){
             boolean active = true;
             while(active){
@@ -220,8 +222,9 @@ public class InteractivePayroll {
                     }
                 }
             }
-        }else if(userDecision==JOptionPane.NO_OPTION){
-            //console input
+        }
+        //Console input
+        else if(userDecision==JOptionPane.NO_OPTION){
             System.out.print("Enter your full name: ");
             String name = scanner.nextLine();
             System.out.print("Enter your ID: ");
