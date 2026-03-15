@@ -32,6 +32,7 @@ public class InteractivePayroll {
 //        String employeeNameScanner = scanner.nextLine();
 
         //runnign with while
+
         boolean active = true;
         while(active){
             //Initialize vairables
@@ -59,13 +60,7 @@ public class InteractivePayroll {
                     //if yes the we continue to salary calculation
                     //with no we contnue to hourly calculation
             );
-            //console input
-            System.out.print("Enter your full name: ");
-            String name = scanner.nextLine();
-            System.out.print("Enter your ID: ");
-            String Id = scanner.nextLine();
-            System.out.print("Do you earn in Salary or hours:(Y=Salary | N=Hourly): ");
-            String pamentmethods = scanner.nextLine();
+
             try {
                 double userMonthlySalary = 0.00;
                 double userBiweeklySalary = 0.00;
