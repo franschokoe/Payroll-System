@@ -305,20 +305,20 @@ public class InteractivePayroll {
                         } else if (workingHours<normalHours) {
                             System.out.print("No hours less than 40 hours try again");
                         }
+                        else {
+                            System.out.print("Error occured");
+                            break;
+                        }
                     }
                     catch (NullPointerException e){
                         System.out.print("Empty input not allowed");
                     }
 
-                    System.out.print("Enter your annual salary: ");
                 }
                 else{
-
+                    System.out.print("Invalid input for Salary or hourly try again");
                 }
             }
-
-
-
 
         }
         //termination
