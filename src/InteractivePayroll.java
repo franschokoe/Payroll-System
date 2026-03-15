@@ -264,7 +264,7 @@ public class InteractivePayroll {
                         userweeklySalary = (userMonthlySalary / 31) * 7;
 
                         //testing output
-                        System.out.print(userweeklySalary);
+                        //System.out.print(userweeklySalary);
                     }
                     catch(NumberFormatException e){
                         System.out.print("Invalid input, please only numbers");
@@ -317,6 +317,39 @@ public class InteractivePayroll {
                 }
                 else{
                     System.out.print("Invalid input for Salary or hourly try again");
+                }
+
+                String results = String.format(
+                        "Full Names: %s\n " +
+                        "Employee ID: %s\n\n " +
+                        "----------------------------\n\n" +
+                        "SALARY EMPLOYEE\n\n" +
+                        "Monthly Salary:R %.2f\n " +
+                        "Bi-Weekly Salary:R %.2f\n " +
+                        "Week Salary:R %.2f\n\n " +
+                        "-------------------------------\n\n" +
+                        "HOURLY EMPLOYEE\n\n" +
+                        "Weekly amount(normal hours):R %.2f\n " +
+                        "Overtime amount:R %.2f ",
+                        name,
+                        Id,
+                        userMonthlySalary,
+                        userBiweeklySalary,
+                        userweeklySalary,
+                        employeeWage,
+                        totalHoursWage
+                );
+
+                //outputting all
+                System.out.print(results + "\n\n");
+                System.out.print("Do you want to continue?(1.Yes/2.No): ");
+                String recurring = scanner.nextLine().toLowerCase();
+                if (recurring.equals("1")||recurring.equals("yes")){
+                    continue;
+                }
+                else {
+                    System.out.print("Thanks for using the payroll\n\nBye.");
+                    break;
                 }
             }
 
