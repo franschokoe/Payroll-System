@@ -53,11 +53,7 @@ public class InteractivePayroll {
                 );
 
                 try {
-//                    double userMonthlySalary = 0.00;
-//                    double userBiweeklySalary = 0.00;
-//                    double userweeklySalary = 0.00;
-//                    double employeeWage = 0.00;
-//                    double totalHoursWage = 0.00;
+
                     if (paymentType == JOptionPane.YES_OPTION) {
                         //user enter their salary here
                         try {
@@ -221,7 +217,7 @@ public class InteractivePayroll {
                     String paymentmethods = scanner.nextLine().toLowerCase();
 
                     if (name.isEmpty() || Id.isEmpty() || paymentmethods.isEmpty()) {
-                        System.out.print("No empty input fill all the space");
+                        System.out.print("No empty input fill all the space\n");
                     } else {
                         if (paymentmethods.equals("y") || paymentmethods.equals("salary")) {
                             //yes input for salary
@@ -236,10 +232,10 @@ public class InteractivePayroll {
                                 //testing output
                                 //System.out.print(userweeklySalary);
                             } catch (NumberFormatException e) {
-                                System.out.print("Invalid input, please only numbers");
+                                System.out.print("Invalid input, please only numbers\n");
                                 active = false;
                             } catch (NullPointerException e) {
-                                System.out.print("Enter something no empty input");
+                                System.out.print("Enter something no empty input\n");
                                 break;
                             }
                         } else if (paymentmethods.equals("n") || paymentmethods.equals("hourly")) {
@@ -266,17 +262,19 @@ public class InteractivePayroll {
                                     employeeWage = workingHours * hourlyRate;
 
                                 } else if (workingHours < normalHours) {
-                                    System.out.print("No hours less than 40 hours try again");
+                                    System.out.print("No hours less than 40 hours try again\n");
+                                    break;
                                 } else {
-                                    System.out.print("Error occured");
+                                    System.out.print("Error occured\n");
                                     break;
                                 }
                             } catch (NullPointerException e) {
-                                System.out.print("Empty input not allowed");
+                                System.out.print("Empty input not allowed\n");
                             }
 
                         } else {
-                            System.out.print("Invalid input for Salary or hourly try again");
+                            System.out.print("Invalid input for Salary or hourly try again\n");
+                            break;
                         }
 
                         String results = String.format(
@@ -315,7 +313,7 @@ public class InteractivePayroll {
                         break;
                     }
                 } catch (NumberFormatException e) {
-                    System.out.print("Enter only values");
+                    System.out.print("Enter only values\n");
                 }
             }
         }
