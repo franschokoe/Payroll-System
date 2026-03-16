@@ -68,8 +68,8 @@ public class InteractivePayroll {
 
                             //calculating monthly bi-weekly , weekly salary
                             userMonthlySalary = (employeeSalary / 12);
-                            userBiweeklySalary = (userMonthlySalary / 31) * 14;
-                            userweeklySalary = (userMonthlySalary / 31) * 7;
+                            userweeklySalary = (userMonthlySalary / 4.33);
+                            userBiweeklySalary = (userweeklySalary*2) ;
 
                         } catch (NumberFormatException e) {
                             //null for not number input
@@ -150,17 +150,17 @@ public class InteractivePayroll {
                     }
                     //results section in a formated way
                     String summaryResults = String.format(
-                            "Full Names: %s\n " +
+                                    "Full Names: %s\n " +
                                     "Employee ID: %s\n\n " +
                                     "----------------------------\n\n" +
                                     "SALARY EMPLOYEE\n\n" +
-                                    "Monthly Salary:R %.2f\n " +
-                                    "Bi-Weekly Salary:R %.2f\n " +
-                                    "Week Salary:R %.2f\n\n " +
+                                    "Monthly Salary:\tR %.2f\n " +
+                                    "Bi-Weekly Salary:\tR %.2f\n " +
+                                    "Week Salary:\tR %.2f\n\n " +
                                     "-------------------------------\n\n" +
                                     "HOURLY EMPLOYEE\n\n" +
-                                    "Weekly amount(normal hours):R %.2f\n " +
-                                    "Overtime amount:R %.2f ",
+                                    "Weekly amount(normal hours):\tR %.2f\n " +
+                                    "Overtime amount:\tR %.2f ",
                             employeeName,
                             employeeId,
                             userMonthlySalary,
@@ -226,8 +226,8 @@ public class InteractivePayroll {
                                 double consoleAnnualSalary = scanner.nextDouble(); //output this
 
                                 userMonthlySalary = (consoleAnnualSalary / 12);
-                                userBiweeklySalary = (userMonthlySalary / 31) * 14;
-                                userweeklySalary = (userMonthlySalary / 31) * 7;
+                                userweeklySalary = (userMonthlySalary / 4.33);
+                                userBiweeklySalary = (userweeklySalary*2) ;
 
                                 //testing output
                                 //System.out.print(userweeklySalary);
@@ -246,7 +246,7 @@ public class InteractivePayroll {
                                 double workingHours = scanner.nextDouble();
                                 System.out.print("Enter your hourly rate: ");
                                 double hourlyRate = scanner.nextDouble();
-
+                                System.out.print("");
                                 if (workingHours == normalHours) {
 
                                     employeeWage = workingHours * hourlyRate;
@@ -278,7 +278,7 @@ public class InteractivePayroll {
                         }
 
                         String results = String.format(
-                                "Full Names: %s\n" +
+                                        "Full Names: %s\n" +
                                         "Employee ID: %s\n\n" +
                                         "----------------------------\n\n" +
                                         "SALARY EMPLOYEE\n\n" +
@@ -303,17 +303,18 @@ public class InteractivePayroll {
 
 
                     }
-                    System.out.print("Do you want to continue?(1.Yes/2.No): ");
-                    String recurring = scanner.nextLine().toLowerCase();
 
-                    if (recurring.equals("1") || recurring.equals("yes")) {
-                        continue;
-                    } else if (recurring.equals("2") || recurring.equals("no")) {
-                        System.out.print("Thanks for using the payroll\n\nBye.");
-                        break;
-                    }
                 } catch (NumberFormatException e) {
                     System.out.print("Enter only values\n");
+                }
+                System.out.print("Do you want to continue?(1.Yes/2.No):");
+                String recurring = scanner.nextLine().toLowerCase();
+
+                if (recurring.equals("1") || recurring.equals("yes")) {
+                    continue;
+                } else if (recurring.equals("2") || recurring.equals("no")) {
+                    System.out.print("Thanks for using the payroll\n\nBye.");
+                    break;
                 }
             }
         }
