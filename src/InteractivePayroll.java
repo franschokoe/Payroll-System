@@ -253,6 +253,7 @@ public class InteractivePayroll {
                                 if (workingHours == normalHours) {
 
                                     employeeWage = workingHours * hourlyRate;
+
                                 } else if (workingHours > normalHours) {
                                     double extraTimeRate = 1.5;
 
