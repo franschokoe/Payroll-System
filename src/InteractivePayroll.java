@@ -224,10 +224,11 @@ public class InteractivePayroll {
                             try {
                                 System.out.print("Enter your annual salary: ");
                                 double consoleAnnualSalary = scanner.nextDouble(); //output this
+                                scanner.nextLine();
 
                                 userMonthlySalary = (consoleAnnualSalary / 12);
                                 userweeklySalary = (userMonthlySalary / 4.33);
-                                userBiweeklySalary = (userweeklySalary*2) ;
+                                userBiweeklySalary = (userweeklySalary * 2);
 
                                 //testing output
                                 //System.out.print(userweeklySalary);
@@ -244,8 +245,10 @@ public class InteractivePayroll {
                             try {
                                 System.out.print("Enter your working hours: ");
                                 double workingHours = scanner.nextDouble();
+                                scanner.nextLine();
                                 System.out.print("Enter your hourly rate: ");
                                 double hourlyRate = scanner.nextDouble();
+                                scanner.nextLine();
                                 System.out.print("");
                                 if (workingHours == normalHours) {
 
@@ -278,17 +281,17 @@ public class InteractivePayroll {
                         }
 
                         String results = String.format(
-                                        "Full Names: %s\n" +
-                                        "Employee ID: %s\n\n" +
+                                "Full Names:\t %s\n" +
+                                        "Employee ID:\t %s\n\n" +
                                         "----------------------------\n\n" +
                                         "SALARY EMPLOYEE\n\n" +
-                                        "Monthly Salary:R %.2f\n" +
-                                        "Bi-Weekly Salary:R %.2f\n" +
+                                        "Monthly Salary:\tR %.2f\n" +
+                                        "Bi-Weekly Salary:\tR %.2f\n" +
                                         "Week Salary:R %.2f\n\n" +
                                         "-------------------------------\n\n" +
                                         "HOURLY EMPLOYEE\n\n" +
-                                        "Weekly amount(normal hours):R %.2f\n" +
-                                        "Overtime amount:R %.2f ",
+                                        "Weekly amount(normal hours):\tR %.2f\n" +
+                                        "Overtime amount:\tR %.2f ",
                                 name,
                                 Id,
                                 userMonthlySalary,
@@ -307,12 +310,11 @@ public class InteractivePayroll {
                 } catch (NumberFormatException e) {
                     System.out.print("Enter only values\n");
                 }
+
                 System.out.print("Do you want to continue?(1.Yes/2.No):");
                 String recurring = scanner.nextLine().toLowerCase();
 
-                if (recurring.equals("1") || recurring.equals("yes")) {
-                    continue;
-                } else if (recurring.equals("2") || recurring.equals("no")) {
+                if (recurring.equals("2") || recurring.equals("no")) {
                     System.out.print("Thanks for using the payroll\n\nBye.");
                     break;
                 }
